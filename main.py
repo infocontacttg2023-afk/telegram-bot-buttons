@@ -1,8 +1,15 @@
 from aiogram import Bot, Dispatcher, executor, types
 import os
+import logging
+
+# Логування
+logging.basicConfig(level=logging.INFO)
 
 # Беремо токен з Render → Environment Variables
 TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    raise ValueError("BOT_TOKEN is not set in environment variables")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
@@ -29,3 +36,5 @@ async def process_callback(call: types.CallbackQuery):
 # Запуск бота
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
+
+
