@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.13-slim
 
 RUN apt-get update && apt-get install -y \
     gcc \
@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 
-# ФІКС ДЛЯ RENDER
-RUN pip install --upgrade "pip<25"
+RUN pip install --upgrade "pip"
 
 RUN pip install --no-cache-dir -r requirements.txt
 
