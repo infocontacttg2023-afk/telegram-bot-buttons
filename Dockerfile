@@ -1,6 +1,5 @@
 FROM python:3.10-slim
 
-# Встановлюємо необхідні системні бібліотеки
 RUN apt-get update && apt-get install -y \
     gcc \
     build-essential \
@@ -11,8 +10,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 
-# Оновлення pip + встановлення залежностей
-RUN pip install --upgrade pip
+# ФІКС ДЛЯ RENDER
+RUN pip install --upgrade "pip<25"
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
