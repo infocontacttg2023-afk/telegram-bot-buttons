@@ -1,2 +1,2 @@
-aiohttp/_websocket.c:3744:45: error: ‘PyLongObject’ ... has no member named ‘ob_digit’
-error: command '/usr/bin/gcc' failed with exit code 1
+aiogram==2.25.1
+aiohttp==3.9.5
